@@ -2,14 +2,190 @@
  * HELPER FUNCTIONS *
  ********************/
 
+// const transformPriorityHelper = function (todos) {
+//   if (todos.priority === 1) {
+//     todos.priority = 'Low'
+//   }
+//   if (todos.priority === 2) {
+//     todos.priority = 'High'
+//   }
+//   return todos.priority
+
+// }
+// -------------------------------------------------------------------//
+// -------------------------------------------------------------------//
+
+const justNotCompleteHelper = function (newTodos) {
+
+  if (newTodos.complete === false) {
+    return newTodos
+  }
+}
+// -------------------------------------------------------------------//
+// -------------------------------------------------------------------//
+
+const justCompleteHelper = function (newTodos) {
+
+  if (newTodos.complete === true) {
+    return newTodos
+  }
+}
+// -------------------------------------------------------------------//
+// -------------------------------------------------------------------//
+
+const isLowPriorityHelper = function (todo) {
+  if (todo.priority > 1) {
+    return false
+  }
+  return true
+}
+// -------------------------------------------------------------------//
+// -------------------------------------------------------------------//
+
+const namesAndPriorityHelper = function (todos) {
+  if (todos.priority === 1) {
+    todos.priority = 'Low'
+  }
+  if (todos.priority === 2) {
+    todos.priority = 'High'
+  }
+  return `${todos.text} - ${todos.priority}`
+  
+  
+}
+
+// -------------------------------------------------------------------//
+// -------------------------------------------------------------------//
+// -------------------------------------------------------------------//
+// -------------------------------------------------------------------//
+
+
+/*****************
+ * GET TODO NAME *
+ *****************/
+const getTodoName = function (todo) {
+  return todo.text;
+}
+// -------------------------------------------------------------------//
+// -------------------------------------------------------------------//
+
+/******************
+ * NAMES FUNCTION *
+ ******************/
+// const names = function(todos) {
+const names = (todos) => todos.map((todo) => todo.text)
+// return todos.map(getTodoName)
+
+// return todos.map((todo) => todo.text)
+
+
+// return todos.map(function(todo){
+//   return todo.text
+// }) 
+// }
+
+// -------------------------------------------------------------------//
+// -------------------------------------------------------------------//
+
+/*************************
+ * GET PRIORITY FUNCTION *
+ *************************/
+const getPriority = (todos) => todos.priority
+
+// -------------------------------------------------------------------//
+// -------------------------------------------------------------------//
+
+
+/************************
+ * IS COMPLETE FUNCTION *
+ ************************/
+const isComplete = (todo) => todo.complete
+
+
+// -------------------------------------------------------------------//
+// -------------------------------------------------------------------//
 
 
 
+/*****************************
+ * IS HIGH PRIORITY FUNCTION *
+ *****************************/
+
+const isHighPriority = function (todo) {
+  if (todo.priority > 1) {
+    return true
+  }
+  return false
+}
+// -------------------------------------------------------------------//
+// -------------------------------------------------------------------//
+
+
+/***********************
+ * PRIORITIES FUNCTION *
+ ***********************/
+
+const priorities = (todos) => todos.map((getPriority))
+
+// -------------------------------------------------------------------//
+// -------------------------------------------------------------------//
+
+
+/*********************************
+ * NAMES AND PRIORITIES FUNCTION *
+ *********************************/
+
+const namesAndPriorities = function (todos) {
+  return( todos.map(namesAndPriorityHelper))
+  // console.log(todos) 
+
+}
+
+// -------------------------------------------------------------------//
+// -------------------------------------------------------------------//
+
+/******************************
+ * JUST NOT COMPLETE FUNCTION *
+ ******************************/
+// returns an array (filter)
+// array includes todos that are not complete (complete === false)
+
+
+const justNotComplete = function (todos) {
+  return todos.filter(justNotCompleteHelper)
+}
+
+// -------------------------------------------------------------------//
+// -------------------------------------------------------------------//
+
+/**************************
+ * JUST COMPLETE FUNCTION *
+ **************************/
+const justComplete = function (todos) {
+  return todos.filter(justCompleteHelper)
+}
+// -------------------------------------------------------------------//
+// -------------------------------------------------------------------//
 
 
 
+/****************************
+ * PRIORITY 2 ONLY FUNCTION *
+ ****************************/
+const priority2Only = function (todos) {
+  return todos.filter(isHighPriority)
+}
 
+// -------------------------------------------------------------------//
+// -------------------------------------------------------------------//
 
+/****************************
+ * PRIORITY 1 ONLY FUNCTION *
+ ****************************/
+const priority1Only = function (todos) {
+  
+  return todos.filter(isLowPriorityHelper)
+}
 
 /***********************
  * ITERATION FUNCTIONS *
