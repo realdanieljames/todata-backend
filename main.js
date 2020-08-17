@@ -2,16 +2,7 @@
  * HELPER FUNCTIONS *
  ********************/
 
-// const transformPriorityHelper = function (todos) {
-//   if (todos.priority === 1) {
-//     todos.priority = 'Low'
-//   }
-//   if (todos.priority === 2) {
-//     todos.priority = 'High'
-//   }
-//   return todos.priority
 
-// }
 // -------------------------------------------------------------------//
 // -------------------------------------------------------------------//
 
@@ -42,16 +33,10 @@ const isLowPriorityHelper = function (todo) {
 // -------------------------------------------------------------------//
 // -------------------------------------------------------------------//
 
-const namesAndPriorityHelper = function (todos) {
-  if (todos.priority === 1) {
-    todos.priority = 'Low'
-  }
-  if (todos.priority === 2) {
-    todos.priority = 'High'
-  }
-  return `${todos.text} - ${todos.priority}`
-  
-  
+const namesAndPrioritiesHelper = function (todo) {
+  const priority = (todo.priority === 2) ? 'High' : 'Low';
+
+  return `${todo.text} - ${priority}`;
 }
 
 // -------------------------------------------------------------------//
@@ -135,11 +120,16 @@ const priorities = (todos) => todos.map((getPriority))
  * NAMES AND PRIORITIES FUNCTION *
  *********************************/
 
-const namesAndPriorities = function (todos) {
-  return( todos.map(namesAndPriorityHelper))
+
+
+
+
+const namesAndPriorities = (todos) => todos.map(namesAndPrioritiesHelper)
+
   // console.log(todos) 
 
-}
+
+
 
 // -------------------------------------------------------------------//
 // -------------------------------------------------------------------//
@@ -183,7 +173,7 @@ const priority2Only = function (todos) {
  * PRIORITY 1 ONLY FUNCTION *
  ****************************/
 const priority1Only = function (todos) {
-  
+
   return todos.filter(isLowPriorityHelper)
 }
 
